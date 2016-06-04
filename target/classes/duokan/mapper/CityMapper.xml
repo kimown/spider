@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="duokan.mapper.CityMapper">
+
+    <sql id="columns">
+        admin_id as adminId,
+        user_id as userId,
+        item_no as itemNo,
+        item_amount as itemAmount,
+        item_img as itemImg,
+        item_name as itemName,
+        item_price as itemPrice,
+        item_productid as itemProductId,
+        item_sku_info as itemSkuInfo,
+        item_sell_point as sellPoint,
+        item_sell_point as sellPoint,
+        owner_id as ownerId
+    </sql>
+
+    <select id="findAllFromXml"
+            resultType="duokan.domain.City3">
+        SELECT
+        id,name,state,country
+        FROM city3
+        <where>
+            1=1
+        </where>
+    </select>
+
+
+</mapper>
