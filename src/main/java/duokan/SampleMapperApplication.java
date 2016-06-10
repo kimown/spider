@@ -15,13 +15,24 @@
  */
 package duokan;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.TypeReference;
 import duokan.domain.City3;
+import duokan.domain.DuokanBookInfo;
 import duokan.mapper.CityMapper;
+import duokan.mapper.DuokanBookInfoMapper;
+import duokan.service.Duokan;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -31,6 +42,12 @@ public class SampleMapperApplication implements CommandLineRunner {
     @Autowired
     private CityMapper cityMapper;
 
+    @Autowired
+    private DuokanBookInfoMapper duokanBookInfoMapper;
+
+    private static final Logger logger = LoggerFactory
+            .getLogger(SampleMapperApplication.class);
+
 
     public static void main(String[] args) {
         SpringApplication.run(SampleMapperApplication.class, args);
@@ -38,11 +55,25 @@ public class SampleMapperApplication implements CommandLineRunner {
 
 
     public void run(String... args) throws Exception {
-        System.out.println(this.cityMapper.findByState("33"));
 
 
-        List<City3> cityList = cityMapper.findAllFromXml();
-        System.out.print(Arrays.toString(cityList.toArray()));
+
+//        List<City3> cityList = cityMapper.findAllFromXml();
+//        System.out.print(Arrays.toString(cityList.toArray()));
+
+//        Duokan.crawler2Duokan();
+        logger.debug("ddd");
+
+        System.out.println("-----------========---------");
+
+//        List<DuokanBookInfo> duokanBookInfoList = new ArrayList<DuokanBookInfo>();
+//        DuokanBookInfo duokanBookInfo=new DuokanBookInfo();
+//        duokanBookInfo.setHref("123href");
+//        duokanBookInfo.setBookId("123");
+//        duokanBookInfoList.add(duokanBookInfo);
+//        duokanBookInfoMapper.insertBatch(duokanBookInfoList);
+
+
     }
 
 }
