@@ -15,7 +15,7 @@ const http = require('http');
 
 var body = JSON.stringify({
     foo: "bar"
-})
+});
 
 var request = new http.ClientRequest({
     hostname: "127.0.0.1",
@@ -26,11 +26,22 @@ var request = new http.ClientRequest({
         "Content-Type": "application/json",
         "Content-Length": Buffer.byteLength(body)
     }
-})
-
-
-
+});
 request.end(body);
+
+//  http://stackoverflow.com/questions/4579757/how-do-i-create-a-http-client-request-with-a-cookie
+request.on('response', function(response) {
+    var data = [];
+    response.on('data', function(chunk) {
+        data.push(chunk);
+    });
+    response.on('end', function() {
+        var res = data.toString();
+
+        // do what you do
+    });
+});
+
 
 
 
